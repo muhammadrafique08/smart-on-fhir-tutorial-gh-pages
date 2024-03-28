@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
+    -->
+    <title>Example-SMART-App</title>
+  </head>
+  <body>
+    <!-- Required JS files to enable this page to embed within an MPage -->
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    -->
+
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/js/fhir-client-v0.1.12.js'></script>
+
+    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+    <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+    <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <script>
+      FHIR.oauth2.authorize({
+        'client_id': '0oalgijtau8w6kya9297',
+        'scope':  'patient/Patient.read patient/Observation.read launch/patient online_access openid profile'
+      });
+    </script>
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </body>
+</html>
+
+<!--
+Standalone Paitent App Client Id: eyJhbGciOiJSUzI1NiJ9.eyJjbGllbnRfdXJpIjoiaHR0cHM6XC9cL3dhc2lmLW11bmlyLmdpdGh1Yi5pbyIsImdyYW50X3R5cGVzIjpbImF1dGhvcml6YXRpb25fY29kZSJdLCJpc3MiOiJodHRwczpcL1wvbXlkYXRhLmdlaGVhbHRoY2FyZS5jb20iLCJyZWRpcmVjdF91cmlzIjpbImh0dHBzOlwvXC93YXNpZi1tdW5pci5naXRodWIuaW9cL3NtYXJ0LW9uLWZoaXItdHV0b3JpYWxcL2V4YW1wbGUtc21hcnQtYXBwXC8iXSwidG9rZW5fZW5kcG9pbnRfYXV0aF9tZXRob2QiOiJjbGllbnRfc2VjcmV0X2Jhc2ljIiwic29mdHdhcmVfaWQiOiIwLjEiLCJuYXRpdmVfY2xpZW50IjpmYWxzZSwiaHR0cHM6XC9cL215ZGF0YS5nZWhlYWx0aGNhcmUuY29tXC9vYXV0aDIuY2xhaW1zXC9hcHBfaWQiOiJkZDlhZmZkNy02MGFjLTRmNzktYjQ1OC1iZGFhZmZhOTAwNDAiLCJleHAiOjIwMTI1Njc2MDcsImNsaWVudF9uYW1lIjoiTXkgU21hcnQgUGF0aWVudCBBcHAiLCJpYXQiOjE2OTY5NDg0MDcsImNvbnRhY3RzIjpbInJlZGhhdDM2M0BnbWFpbC5jb20iXSwicmVzcG9uc2VfdHlwZXMiOlsiY29kZSJdfQ.LX2mLeh7MwgIkHZ7_qQnY01ZLXxgrGuiSU2fp_CBzUxcrVIyy4Vh-1reiaQ7SUMz83LBYcr202wWOKt2loWhx0xNgURliC1vIHwuEPo7_BGXzxQIk7djzOkl25DDrXZ3Kzyp7D3-KstnLsMO5TeMaBVGQiIB0byMFZ6Va3pQZg8
+
+Standalone Paitent App Client URL: https://wasif-munir.github.io/smart-on-fhir-tutorial/example-smart-app/launch-patient_athena.html?iss=https://ap23sandbox.fhirapi.athenahealth.com/demoAPIServer
+-->
